@@ -3,18 +3,20 @@ import RecipeDetails from "@/components/recipes/RecipeDetails";
 import RecipeSteps from "@/components/recipes/RecipeSteps";
 import { getRecipeById } from "@/db/queries";
 
-export async function generateMetadata({ params:{id}, searchParams }, parent) {
-  const {name , description,thumbnail} =  await getRecipeById(id) 
+export async function generateMetadata({ params:{id} }, parent) {
+
+  const recipe =  await getRecipeById(id) 
+
 
   const previousImages = (await parent).openGraph?.images || [];
   return {
-      title: name,
-      description: description.slice(0, 100),
+      title: recipe?.name,
+      description: recipe?.description.slice(0, 100),
       openGraph: {
           images: [
      
               {
-                  url: thumbnail ,
+                  url: 'https://source.unsplash.com/jUPOXXRNdcA/300x160',
                   width: 1200,
                   height: 600,
               },

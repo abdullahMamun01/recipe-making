@@ -19,7 +19,7 @@ export default function Navbar() {
                     </li>
 
                     <li className="py-2">
-                        <a href="./index.html">Recipe</a>
+                        <Link href="/recipes">Recipe</Link>
                     </li>
 
                     <li className="py-2">

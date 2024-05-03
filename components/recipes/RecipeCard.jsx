@@ -7,7 +7,7 @@ export default function RecipeCard({ recipe }) {
     return (
         <div className="card">
             <Image src={recipe?.thumbnail} className="rounded-md w-full" alt={recipe?.title} width={500} height={200} />
-            <Link href={`/details/${recipe?.id}`}>
+            <Link href={`/recipes/${recipe?.id}`}>
                 <h4 className="my-2">{recipe?.name}</h4>
             </Link>
 
