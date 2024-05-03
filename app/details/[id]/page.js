@@ -14,7 +14,7 @@ export async function generateMetadata({ params:{id}, searchParams }, parent) {
           images: [
      
               {
-                  url: thumbnail ?? 'https://source.unsplash.com/jUPOXXRNdcA/300x160',
+                  url: thumbnail ,
                   width: 1200,
                   height: 600,
               },
