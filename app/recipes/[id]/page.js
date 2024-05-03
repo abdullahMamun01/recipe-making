@@ -16,7 +16,7 @@ export async function generateMetadata({ params:{id} }, parent) {
           images: [
      
               {
-                  url: 'https://source.unsplash.com/jUPOXXRNdcA/300x160',
+                  url: 'https://recipe-making.vercel.app/api/og',
                   width: 1200,
                   height: 600,
               },
