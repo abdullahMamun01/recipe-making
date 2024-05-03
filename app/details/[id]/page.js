@@ -4,18 +4,17 @@ import RecipeSteps from "@/components/recipes/RecipeSteps";
 import { getRecipeById } from "@/db/queries";
 
 export async function generateMetadata({ params:{id}, searchParams }, parent) {
-  const {name , description,image} =  await getRecipeById(id) 
-  console.log({name})
+  const {name , description,thumbnail} =  await getRecipeById(id) 
+
   const previousImages = (await parent).openGraph?.images || [];
   return {
       title: name,
       description: description.slice(0, 100),
       openGraph: {
           images: [
-
      
               {
-                  url: `https://recipe-making.vercel.app/api/og`,
+                  url: thumbnail ?? 'https://source.unsplash.com/jUPOXXRNdcA/300x160',
                   width: 1200,
                   height: 600,
               },

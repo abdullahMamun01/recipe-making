@@ -1,26 +1,20 @@
-import OgImage from "@/components/OgImage";
-import Image from "next/image";
 import { ImageResponse } from "next/og";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const hasTitle = searchParams.has("title");
-    const hasUrl = searchParams.has("url")
-    const url = hasUrl ? searchParams.get('url') : 'https://source.unsplash.com/random/800x600?recipe'
+
+    const title = hasTitle ? searchParams.get("title") : "Recipe website";
+
     return new ImageResponse(
-        <div 
-        style={{
-            fontSize: 48,
-            background: 'white',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-            <img tw="w-96 h-96 object-cover" src={url} width={100} height={100} alt="title" />
-        </div>,
-        { width: 800, height: 600 }
-    )
+        (
+            <div tw="text-7xl bg-teal-600 w-full h-full flex text-center items-center justify-center">
+                {title}
+            </div>
+        ),
+        {
+            width: 1200,
+            height: 600,
+        }
+    );
 }
