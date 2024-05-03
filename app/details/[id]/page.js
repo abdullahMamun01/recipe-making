@@ -13,11 +13,7 @@ export async function generateMetadata({ params:{id}, searchParams }, parent) {
       openGraph: {
           images: [
 
-            {
-              url: image,
-              width: 1200,
-              height: 600,
-          },
+     
               {
                   url: `https://recipe-making.vercel.app/api/og`,
                   width: 1200,
