@@ -2,6 +2,7 @@
 import RecipeDetails from "@/components/recipes/RecipeDetails";
 import RecipeSteps from "@/components/recipes/RecipeSteps";
 import { getRecipeById } from "@/db/queries";
+import { notFound } from "next/navigation";
 
 // export async function generateMetadata({ params:{id} }, parent) {
 
@@ -26,8 +27,11 @@ import { getRecipeById } from "@/db/queries";
 // }
 
 export default async function RecipesDetailsPage({params: {id}}) {
-  const {steps,...recipe } =  await getRecipeById(id) 
-
+  const recipeItem =  await getRecipeById(id) ;
+if(!recipeItem){
+  notFound()
+}
+const {steps,...recipe } = recipeItem
   return (
     <main>
       <section>
