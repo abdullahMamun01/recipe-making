@@ -15,12 +15,11 @@ export async function generateMetadata({ params:{id} }, parent) {
       description: recipe?.description.slice(0, 100),
       openGraph: {
           images: [
-     
               {
                   url: recipe?.thumbnail,
                   width: 1200,
                   height: 600,
-              },
+              }
           ],
       },
   };
@@ -28,9 +27,7 @@ export async function generateMetadata({ params:{id} }, parent) {
 
 export default async function RecipesDetailsPage({params: {id}}) {
   const recipeItem =  await getRecipeById(id) ;
-if(!recipeItem){
-  notFound()
-}
+
 const {steps,...recipe } = recipeItem
   return (
     <main>
